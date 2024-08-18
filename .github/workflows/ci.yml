@@ -5,14 +5,10 @@ on:
       - main
 jobs:
   tasks:
-    strategy:
-      matrix:
-        os: [ubuntu-latest, macos-latest]
-    runs-on: ${{ matrix.os }}
+    runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
       - name: Shutdown Ubuntu MySQL
-        if: matrix.os == 'ubuntu-latest'
         run: |
           sudo service mysql stop
           sudo apt-get remove --purge mysql-server mysql-client mysql-common -y
