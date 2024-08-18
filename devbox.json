@@ -1,0 +1,27 @@
+{
+  "packages": {
+    "python": "3.12",
+    "python312Packages.pip": "latest",
+    "mysql80": {
+      "version": "latest",
+      "disable_plugin": true
+    },
+    "pkg-config": "latest",
+    "libmysqlclient": "latest"
+  },
+  "shell": {
+    "init_hook": [
+      "echo 'Welcome to devbox!' > /dev/null",
+      ". $VENV_DIR/bin/activate",
+      "python -m pip install -r requirements.txt --use-pep517"
+    ],
+    "scripts": {
+      "test": [
+        "python todo_project/manage.py makemigrations",
+        "python todo_project/manage.py migrate",
+        "python todo_project/manage.py check",
+        "python todo_project/manage.py test"
+      ]
+    }
+  }
+}
