@@ -34,6 +34,7 @@ jobs:
       - name: test
         run: fluentci run --wasm django test
         env:
+          GITHUB_ACCESS_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           MARIADB_DATABASE: todo
           MARIADB_USER: user
           MARIADB_PASSWORD: testrootpass
