@@ -1,0 +1,19 @@
+[[steps]]
+name = "Start MariaDB"
+command = ["fluentci run --wasm mariadb start"]
+env = [
+  "MARIADB_DATABSE=todo",
+  "MARIADB_USER=user",
+  "MARIADB_PASSWORD=testrootpass",
+]
+
+[[steps]]
+name = "Run tests"
+command = ["fluentci run --wasm django test"]
+env = [
+  "MARIADB_DATABSE=todo",
+  "MARIADB_USER=user",
+  "MARIADB_PASSWORD=testrootpass",
+  "MARIADB_ROOT_PASSWORD=root",
+  "MARIADB_HOST=127.0.0.1",
+]
