@@ -2,7 +2,7 @@
 name = "Start MariaDB"
 command = ["fluentci run --wasm mariadb start"]
 env = [
-  "MARIADB_DATABSE=todo",
+  "MARIADB_DATABASE=todo",
   "MARIADB_USER=user",
   "MARIADB_PASSWORD=testrootpass",
 ]
